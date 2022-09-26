@@ -33,7 +33,7 @@ struct HourlyForecastView: View {
                     }
                  }
                  .padding()
-                 .handleViewState(uiModel: $wvm.hourlyForecastUIModel)
+                 .handleViewState(uiModel: $wvm.uiModel)
             }
     
         }

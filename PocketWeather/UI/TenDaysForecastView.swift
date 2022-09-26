@@ -31,7 +31,7 @@ struct TenDaysForecastView: View {
         .opacity(0.5)
         .cornerRadius(10)
         .padding()
-        .handleViewState(uiModel: $wvm.dailyForecastUIModel)
+        .handleViewState(uiModel: $wvm.uiModel)
         
     }
 }

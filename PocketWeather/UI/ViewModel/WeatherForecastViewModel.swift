@@ -21,7 +21,6 @@ class WeatherForecastViewModel : NSObject, ObservableObject, CLLocationManagerDe
     @Published var hourlyForecastUIModel: UIModel = UIModel.nothing
     @Published var locality = ""
     @Published public var data:WeatherRealm!
-    private var getUserLocationUsecase: GetUserLocationUsecase
     private var getWeatherForecastUsecase: GetWeatherForecastUsecase
     let geocoder = CLGeocoder()
     private var subscriptions = Set<AnyCancellable>()
@@ -29,10 +28,8 @@ class WeatherForecastViewModel : NSObject, ObservableObject, CLLocationManagerDe
     private let locationManager = CLLocationManager()
     
     public init(
-        getUserLocationUsecase: GetUserLocationUsecase,
         getWeatherForecastUsecase: GetWeatherForecastUsecase
     ) {
-        self.getUserLocationUsecase = getUserLocationUsecase
         self.getWeatherForecastUsecase = getWeatherForecastUsecase
         super.init()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -47,14 +44,6 @@ class WeatherForecastViewModel : NSObject, ObservableObject, CLLocationManagerDe
             Task {
                 do {
                     forecast = try await getWeatherForecastUsecase(q: location, days: 7)
-                    let currentWeatherContent = UIModel.ContentViewModel(data: forecast.current, message: "Successful")
-                    currentWeatherUIModel = UIModel.content(currentWeatherContent)
-                    let dailyWeatherContent = UIModel.ContentViewModel(data: forecast.forecast?.forecastday, message: "Successful")
-                    dailyForecastUIModel = UIModel.content(dailyWeatherContent)
-                    if let hours = forecast.forecast?.forecastday.first?.hour  {
-                        let hourlyWeatherContent = UIModel.ContentViewModel(data: hours, message: "Successful")
-                        hourlyForecastUIModel = UIModel.content(hourlyWeatherContent)
-                    }
                     let content = UIModel.ContentViewModel(data: "forecast", message: "Successful")
                     uiModel = UIModel.content(content)
                 }catch {
@@ -74,14 +63,13 @@ class WeatherForecastViewModel : NSObject, ObservableObject, CLLocationManagerDe
             if let city = placeMark.locality {
                 if locality.isEmpty {
                     locality = city
-                    print("Locality \(city)")
                     getForecast() 
                 }
             }
         })
     }
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        uiModel = UIModel.loading
+        uiModel = UIModel.location
         switch status {
         case .restricted, .denied:
             print("Denied")

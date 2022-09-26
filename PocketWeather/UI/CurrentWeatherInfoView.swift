@@ -23,7 +23,7 @@ struct CurrentWeatherInfoViews: View {
             }
             Text(wvm.forecast.current?.condition?.text ?? "None")
                 .font(.title2)
-        }.handleViewState(uiModel: $wvm.currentWeatherUIModel)
+        }.handleViewState(uiModel: $wvm.uiModel)
        
     }
     

@@ -16,12 +16,8 @@ class Dependencies {
     @MainActor
     static func createWFVM() -> WeatherForecastViewModel {
         return WeatherForecastViewModel(
-            getUserLocationUsecase: createLocationUsecase(),
             getWeatherForecastUsecase: createWeatherForecastUsecase()
         )
-    }
-    static func createLocationUsecase() -> GetUserLocationUsecase {
-        GetUserLocationUsecase(locationManager: .shared)
     }
     static func createWeatherForecastUsecase() -> GetWeatherForecastUsecase {
         GetWeatherForecastUsecase(
