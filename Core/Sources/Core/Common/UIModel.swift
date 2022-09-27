@@ -33,7 +33,7 @@ public func convertTimeIntervalToHour(epochTime date:Date?) -> Int{
     return theHour
 }
 
-public func convertTimeIntervalToWeekdayName(epochTime date:Date?) -> String{
+public func convertTimeIntervalToWeekdayName(epochTime date:Date?) -> String {
     let df = DateFormatter()
     let thisDate  = date ?? Date()
     let calendar = Calendar.current
@@ -42,7 +42,6 @@ public func convertTimeIntervalToWeekdayName(epochTime date:Date?) -> String{
     guard thisWeekDay != theWeekDay else {
         return "Today"
     }
-
     return df.weekdaySymbols[theWeekDay - 1]
 }
 

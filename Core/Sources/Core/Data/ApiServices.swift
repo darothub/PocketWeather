@@ -7,9 +7,19 @@
 import Alamofire
 import Foundation
 public protocol ApiServices {
-    func fetchWeatherForecast(in q: String,  for days:Int) -> DataRequest
+//    func fetchWeatherForecast(
+//        in q: String,
+//        for days: Int,
+//        onCompletion: @escaping(Result<WeatherRealm, NetworkError>) -> Void
+//    )
+    func makeRequest<T: Codable> (parameters: [String: Any], onCompletion: @escaping(Result<T, NetworkError>) -> Void)
 }
 
+extension ApiServices {
+    public func request(parameters: [String: Any]) -> DataRequest {
+        return AF.request(Constants.baseUrl, method: .get, parameters: parameters)
+    }
+}
 
 public enum Constants{
     public static let baseUrl = "https://api.weatherapi.com/v1/forecast.json"

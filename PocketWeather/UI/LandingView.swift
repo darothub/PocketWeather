@@ -17,7 +17,7 @@ struct LandingView: View {
    
     var imageUrl = Constants.imagePlaceHolderUrl
     var body: some View {
-        NavigationView{
+        NavigationView {
             TabView {
                 ContentView()
                     .searchable(text: $vm.locality)
@@ -31,7 +31,7 @@ struct LandingView: View {
             .ignoresSafeArea()
             .navigationBarTitleDisplayMode(.inline)
             .background(
-                AsyncImage(url: URL(string:"https:"+(vm.weatherResponse?.current.condition.icon ?? imageUrl))) { image in
+                AsyncImage(url: URL(string:"https:"+(vm.forecast?.current?.condition?.icon ?? "" ))) { image in
                     image.resizable()
                         .scaledToFill()
                         .background(Color.black)

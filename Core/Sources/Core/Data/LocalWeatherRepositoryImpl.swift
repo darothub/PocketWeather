@@ -22,8 +22,13 @@ public class LocalWeatherRepositoryImpl : LocalRepository {
     }
     public func saveWeatherForecast(weather: WeatherRealm){
         if (weather.location != nil && weather.current != nil && weather.forecast != nil){
-            DispatchQueue.main.async { [unowned self] in
-                $weatherRealm.append(weather)
+            do {
+                let realm = try Realm()
+                try realm.write({
+                    realm.add(weather)
+                })
+            } catch {
+                print("RealmError \(error.localizedDescription)")
             }
         }
     }

@@ -12,8 +12,6 @@ import MapKit
 import SwiftUI
 @MainActor
 class WeatherForecastViewModel : NSObject, ObservableObject, CLLocationManagerDelegate  {
-    @State private var lastQuery = UserDefaults.standard.string(forKey: Constant.LOCALITY)
-    @Published var weatherResponse: WeatherResponse!
     @Published var forecast: WeatherRealm!
     @Published var uiModel: UIModel = UIModel.nothing
     @Published var currentWeatherUIModel: UIModel = UIModel.nothing
@@ -43,7 +41,12 @@ class WeatherForecastViewModel : NSObject, ObservableObject, CLLocationManagerDe
         $locality.sink { [unowned self] location in
             Task {
                 do {
-                    forecast = try await getWeatherForecastUsecase(q: location, days: 7)
+                    let parameters:[String: Any] = [
+                        "key" : Constants.apikey,
+                        "q" : location,
+                        "days" : 7
+                    ]
+                    forecast = try await getWeatherForecastUsecase(parameters: parameters)
                     let content = UIModel.ContentViewModel(data: "forecast", message: "Successful")
                     uiModel = UIModel.content(content)
                 }catch {
@@ -59,7 +62,6 @@ class WeatherForecastViewModel : NSObject, ObservableObject, CLLocationManagerDe
         geocoder.reverseGeocodeLocation(location, completionHandler: {[unowned self] placemarks, error in
             var placeMark: CLPlacemark!
             placeMark = placemarks?[0]
-            // City
             if let city = placeMark.locality {
                 if locality.isEmpty {
                     locality = city
@@ -87,8 +89,6 @@ class WeatherForecastViewModel : NSObject, ObservableObject, CLLocationManagerDe
         }
     }
 }
-
-
 
 enum Constant{
     static let LOCALITY = "locality"

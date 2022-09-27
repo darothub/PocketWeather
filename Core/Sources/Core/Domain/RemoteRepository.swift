@@ -7,9 +7,10 @@
 
 import Alamofire
 import Foundation
+import XCTest
 
 public protocol RemoteRepository {
-    func getWeatherData(q: String, days:Int) async throws -> WeatherRealm
+    func getWeatherData(parameters: [String : Any]) async throws -> WeatherRealm
 }
 
 
@@ -20,21 +21,11 @@ public class RemoteRepositoryImpl : RemoteRepository {
         self.apiService = apiService
     }
     
-    public func getWeatherData(q: String, days:Int) async throws -> WeatherRealm {
+    public func getWeatherData(parameters: [String : Any]) async throws -> WeatherRealm {
         try await withCheckedThrowingContinuation { continuation in
-            apiService.fetchWeatherForecast(in: q, for: days)
-                .responseJSON(completionHandler: { resp in
-                    print("Response\(resp)")
-                })
-                .responseDecodable(of: WeatherRealm.self){ res in
-                    switch res.result {
-                    case let .failure(error):
-                        continuation.resume(throwing: error)
-                    case let .success(response):
-                        continuation.resume(returning: response)
-                    }
-                    
-                }
+            apiService.makeRequest(parameters: parameters) { (result: Result<WeatherRealm, NetworkError>) in
+                continuation.resume(with: result)
+            }
         }
     }
 }

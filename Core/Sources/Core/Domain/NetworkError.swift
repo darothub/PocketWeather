@@ -6,6 +6,6 @@
 //
 
 import Foundation
-public enum NetworkError:Error{
-    case networkError
+public enum NetworkError: Error{
+    case networkError(String)
 }

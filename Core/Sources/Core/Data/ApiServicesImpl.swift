@@ -7,14 +7,18 @@
 import Alamofire
 import Foundation
 public class ApiServicesImpl : ApiServices {
+  
     public init(){}
-    public func fetchWeatherForecast(in q: String, for days:Int) -> DataRequest{
-        let parameters:[String: Any] = [
-            "key" : Constants.apikey,
-            "q" : q,
-            "days" : days
-        ]
-        let request = AF.request(Constants.baseUrl, method: .get, parameters: parameters)
-        return request
+    
+    public func makeRequest<T: Codable>(parameters: [String: Any], onCompletion: @escaping (Result<T, NetworkError>) -> Void) {
+        request(parameters: parameters)
+            .responseDecodable(of: T.self) { response in
+                switch response.result {
+                case .failure(let error):
+                    onCompletion(.failure(.networkError(error.localizedDescription)))
+                case .success(let response):
+                    onCompletion(.success(response))
+                }
+            }
     }
 }

@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import RealmSwift
 public protocol LocalRepository {
-    func saveWeatherForecast(weather: WeatherRealm)
+    func saveWeatherForecast(weather: WeatherRealm) 
     func getLocalWeather(q query: String, days: Int) async throws -> WeatherRealm?
 }

@@ -17,10 +17,21 @@
 		0481F23728DB6EC30035E212 /* ForecastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481F22E28DB6EC30035E212 /* ForecastItem.swift */; };
 		0481F23828DB6EC30035E212 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481F22F28DB6EC30035E212 /* ContentView.swift */; };
 		0481F23B28DC78990035E212 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 0481F23A28DC78990035E212 /* Core */; };
+		0481F24328E2D8C80035E212 /* PocketWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0481F24228E2D8C80035E212 /* PocketWeatherTests.swift */; };
 		04EDAF0628D73DF00024BC2A /* PocketWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDAF0528D73DF00024BC2A /* PocketWeatherApp.swift */; };
 		04EDAF0A28D73DF50024BC2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04EDAF0928D73DF50024BC2A /* Assets.xcassets */; };
 		04EDAF0D28D73DF50024BC2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04EDAF0C28D73DF50024BC2A /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0481F24428E2D8C80035E212 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04EDAEFA28D73DF00024BC2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04EDAF0128D73DF00024BC2A;
+			remoteInfo = PocketWeather;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0481F22728DB6EC30035E212 /* WeatherForecastViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherForecastViewModel.swift; sourceTree = "<group>"; };
@@ -32,6 +43,8 @@
 		0481F22D28DB6EC30035E212 /* CurrentWeatherInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherInfoView.swift; sourceTree = "<group>"; };
 		0481F22E28DB6EC30035E212 /* ForecastItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastItem.swift; sourceTree = "<group>"; };
 		0481F22F28DB6EC30035E212 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0481F24028E2D8C80035E212 /* PocketWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0481F24228E2D8C80035E212 /* PocketWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketWeatherTests.swift; sourceTree = "<group>"; };
 		04EDAF0228D73DF00024BC2A /* PocketWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EDAF0528D73DF00024BC2A /* PocketWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketWeatherApp.swift; sourceTree = "<group>"; };
 		04EDAF0928D73DF50024BC2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +53,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0481F23D28E2D8C80035E212 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04EDAEFF28D73DF00024BC2A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,11 +102,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0481F24128E2D8C80035E212 /* PocketWeatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				0481F24228E2D8C80035E212 /* PocketWeatherTests.swift */,
+			);
+			path = PocketWeatherTests;
+			sourceTree = "<group>";
+		};
 		04EDAEF928D73DF00024BC2A = {
 			isa = PBXGroup;
 			children = (
 				04EDAF1328D893930024BC2A /* Packages */,
 				04EDAF0428D73DF00024BC2A /* PocketWeather */,
+				0481F24128E2D8C80035E212 /* PocketWeatherTests */,
 				04EDAF0328D73DF00024BC2A /* Products */,
 				0481F23928DC78990035E212 /* Frameworks */,
 			);
@@ -96,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				04EDAF0228D73DF00024BC2A /* PocketWeather.app */,
+				0481F24028E2D8C80035E212 /* PocketWeatherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +160,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0481F23F28E2D8C80035E212 /* PocketWeatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0481F24628E2D8C80035E212 /* Build configuration list for PBXNativeTarget "PocketWeatherTests" */;
+			buildPhases = (
+				0481F23C28E2D8C80035E212 /* Sources */,
+				0481F23D28E2D8C80035E212 /* Frameworks */,
+				0481F23E28E2D8C80035E212 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0481F24528E2D8C80035E212 /* PBXTargetDependency */,
+			);
+			name = PocketWeatherTests;
+			productName = PocketWeatherTests;
+			productReference = 0481F24028E2D8C80035E212 /* PocketWeatherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		04EDAF0128D73DF00024BC2A /* PocketWeather */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04EDAF1028D73DF50024BC2A /* Build configuration list for PBXNativeTarget "PocketWeather" */;
@@ -160,6 +208,10 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					0481F23F28E2D8C80035E212 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 04EDAF0128D73DF00024BC2A;
+					};
 					04EDAF0128D73DF00024BC2A = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -179,11 +231,19 @@
 			projectRoot = "";
 			targets = (
 				04EDAF0128D73DF00024BC2A /* PocketWeather */,
+				0481F23F28E2D8C80035E212 /* PocketWeatherTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0481F23E28E2D8C80035E212 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04EDAF0028D73DF00024BC2A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,6 +256,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0481F23C28E2D8C80035E212 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0481F24328E2D8C80035E212 /* PocketWeatherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04EDAEFE28D73DF00024BC2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,7 +283,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0481F24528E2D8C80035E212 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04EDAF0128D73DF00024BC2A /* PocketWeather */;
+			targetProxy = 0481F24428E2D8C80035E212 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		0481F24728E2D8C80035E212 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5Q5ZQNKVUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darothub.swift.PocketWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketWeather.app/PocketWeather";
+			};
+			name = Debug;
+		};
+		0481F24828E2D8C80035E212 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5Q5ZQNKVUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darothub.swift.PocketWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketWeather.app/PocketWeather";
+			};
+			name = Release;
+		};
 		04EDAF0E28D73DF50024BC2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -342,6 +454,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PocketWeather/Preview Content\"";
 				DEVELOPMENT_TEAM = 5Q5ZQNKVUT;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location permission is needed for get your location weather";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location permission is needed for get your location weather";
@@ -373,6 +486,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PocketWeather/Preview Content\"";
 				DEVELOPMENT_TEAM = 5Q5ZQNKVUT;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location permission is needed for get your location weather";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location permission is needed for get your location weather";
@@ -397,6 +511,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0481F24628E2D8C80035E212 /* Build configuration list for PBXNativeTarget "PocketWeatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0481F24728E2D8C80035E212 /* Debug */,
+				0481F24828E2D8C80035E212 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		04EDAEFD28D73DF00024BC2A /* Build configuration list for PBXProject "PocketWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
